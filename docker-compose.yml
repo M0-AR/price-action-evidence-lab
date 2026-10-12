@@ -1,0 +1,11 @@
+services:
+  research:
+    build: .
+    image: price-action-evidence-lab:2026
+    volumes:
+      - ./results:/work/results
+      - ./data:/work/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=UTC
+    command: ["python3", "experiments/run_all.py", "--symbols", "SPY,AAPL,BTC-USD,GLD,EURUSD=X", "--years", "6", "--out", "results"]

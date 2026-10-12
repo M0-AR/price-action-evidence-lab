@@ -1,0 +1,20 @@
+{
+  "universe": [
+    "SPY",
+    "AAPL",
+    "BTC-USD",
+    "GLD",
+    "EURUSD=X"
+  ],
+  "years": 6,
+  "horizon": 5,
+  "costs_bps": [
+    0,
+    5,
+    11,
+    20
+  ],
+  "n_tests": 30,
+  "n_bh_hits": 3,
+  "note": "PIT-correct: signal@t close, entry@t+1 open. Costs round-trip."
+}
