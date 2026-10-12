@@ -9,7 +9,11 @@
 
 ## A live-data verification of a price-action course: bulls vs bears, candles, trend, momentum, reversal-vs-rest, and memory zones
 
-> 🌐 **Prefer the website?** Open **`preview.html`** (also hosted via GitHub Pages after a 2-minute setup — see [Appendix C](#appendix-c--interactive-site-github-pages--quiz--lab)) for the visual story, verified charts, an 8-level interactive quiz and a candle lab. This README is the full paper; the page is the guided tour.
+> 🌐 **Prefer the website?** Click any mirror — all three resolve (source `/` recommended in Settings → Pages):
+> [`/` (landing → interactive page)](https://M0-AR.github.io/price-action-evidence-lab/) ·
+> [`/preview.html`](https://M0-AR.github.io/price-action-evidence-lab/preview.html) ·
+> [`/docs/preview.html`](https://M0-AR.github.io/price-action-evidence-lab/docs/preview.html)
+> — visual story, verified charts, 8-level quiz and candle lab. This README is the full paper; the page is the guided tour. Setup details: [Appendix C](#appendix-c--interactive-site-github-pages--quiz--lab).
 >
 > 🎬 **Demo:** `docs/demo.mp4` (player embedded in `preview.html`; add your 60–90s screen recording there) · Screenshots: `docs/preview_top.png`, `docs/chart_*.png` (all generated from verified outputs — see verification log).
 
@@ -332,8 +336,12 @@ Verification log (UTC 2026-10-12): `pytest tests/ -q` → 2 passed; live fetch �
 
 ## Appendix C — Interactive site, GitHub Pages + quiz + lab
 
-`preview.html` is a single self-contained file (no build step, no external JS/CSS/fonts — works from `file://` and on Pages). Contents: story cards → live-result tables + the three verified charts → **8-level quiz** (candles → momentum → reversal → memory → indicators → rarity → horizon → three-gates; instant explanations, progress bar, final grade) → **candle lab** (sliders for body/wicks/colour with live SVG + plain-words reading) → reproduce block → Pages deploy steps → limits/risk.
+`preview.html` is a single self-contained file (no build step, no external JS/CSS/fonts — works from `file://` and on Pages). Contents: story cards → live-result tables + the three verified charts → **8-level quiz** (candles → momentum → reversal → memory → indicators → rarity → horizon → three-gates; instant explanations, progress bar, final grade) → **candle lab** (sliders for body/wicks/colour with live SVG + plain-words reading) → reproduce block → Pages deploy steps → limits/risk. Mirrors: root `preview.html` (canonical) + `docs/preview.html` (same-dir assets) + `index.html`/`docs/index.html` redirects + `.nojekyll` in both folders — so the page resolves under either Pages source setting.
 
 **Publish it as a website (2 minutes, current flow).**
-Let's work this out step-by-step to be sure: ① push this folder to GitHub; ② repo **Settings → Pages → Build and deployment → Source: Deploy from a branch**; ③ **Branch: `main`, folder `/ (root)` → Save**; ④ open `https://<you>.github.io/<repo>/preview.html`; ⑤ optional **Custom domain + Enforce HTTPS** under Pages. Then add a `Live demo` badge at the README top pointing at that URL.
+Let's work this out step-by-step to be sure: ① push this folder to GitHub; ② repo **Settings → Pages → Build and deployment → Source: Deploy from a branch**; ③ **Branch: `main`, folder `/ (root)` (recommended) → Save** — with the mirrors above, folder `/docs` also resolves `/` and `/preview.html`; ④ click and verify all three:
+[`/`](https://M0-AR.github.io/price-action-evidence-lab/) ·
+[`/preview.html`](https://M0-AR.github.io/price-action-evidence-lab/preview.html) ·
+[`/docs/preview.html`](https://M0-AR.github.io/price-action-evidence-lab/docs/preview.html)
+(expect 200/200/200; after changing the source wait 1–2 min for the "pages build and deployment" run, then re-check); ⑤ optional **Custom domain + Enforce HTTPS** under Pages.
 **Video:** record 60–90s (terminal run + quiz clickthrough), export `docs/demo.mp4` (+ GIF teaser ≤10 MB at `docs/demo.gif` via any recorder — the GIF-first convention is the documented README best practice for visual proof); the page's `<video>` player and this README's demo row pick them up with zero code changes.

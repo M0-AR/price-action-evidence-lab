@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Investigator, Not the Indicator — Live Verification</title>
+<meta name="description" content="Price-action course verified on 8,274 live daily bars. Interactive zero-to-pro guide with quiz. MIT.">
+<style>
+:root{--bg:#0b1020;--bg2:#121a33;--card:#182244;--line:#2b3a6b;--txt:#eef2ff;--mut:#aebbdd;--acc:#6ee7a8;--acc2:#7cc4ff;--warn:#ffd479;--bad:#ff8f8f}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--txt);line-height:1.65}
+a{color:var(--acc2)}header.hero{padding:56px 20px 30px;text-align:center;max-width:1000px;margin:auto}
+.badges img{margin:3px;vertical-align:middle}
+h1{font-size:2.1rem;margin:.4em 0 .2em}h2{font-size:1.45rem;border-bottom:2px solid var(--line);padding-bottom:6px;margin-top:44px}h3{color:var(--acc)}
+.ceo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;max-width:900px;margin:20px auto;text-align:left}
+nav.top{position:sticky;top:0;background:#0b102edd;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:5;text-align:center;padding:10px}
+nav.top a{margin:0 12px;text-decoration:none;font-weight:600}
+main{max-width:1000px;margin:auto;padding:0 20px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+img.chart{width:100%;border-radius:10px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:#0e1730}
+.neg{color:var(--bad);font-weight:700}.pos{color:var(--acc);font-weight:700}
+/* quiz */
+#quizbox{background:#0e1730;border:1px solid var(--line);border-radius:14px;padding:20px}
+.q{font-size:1.1rem;font-weight:700}.opts button{display:block;width:100%;margin:8px 0;padding:11px;border-radius:10px;border:1px solid var(--line);background:#182244;color:var(--txt);cursor:pointer;font-size:1rem;text-align:left}
+.opts button:hover{border-color:var(--acc2)}.opts button.ok{border-color:var(--acc);background:#123324}.opts button.no{border-color:var(--bad);background:#3a1620}
+#qbar{height:10px;background:#0b1020;border-radius:6px;border:1px solid var(--line);margin:10px 0}#qfill{height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:6px}
+.exp{font-size:.95rem;color:var(--mut)}.score{font-size:1.2rem;font-weight:800}
+/* lab */
+input[type=range]{width:100%}.candle-demo{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+svg.c{border:1px solid var(--line);border-radius:10px;background:#0b1020}
+footer{max-width:1000px;margin:auto;padding:20px;color:var(--mut);font-size:.9rem}
+code{background:#0b1020;padding:2px 6px;border-radius:6px;border:1px solid var(--line)}
+pre{background:#0b1020;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto}
+details{margin:8px 0}summary{cursor:pointer;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="top">
+<a href="#story">Story</a><a href="#results">Live results</a><a href="#quiz">Quiz</a><a href="#lab">Candle lab</a><a href="#reproduce">Reproduce</a><a href="#pages">GitHub Pages</a>
+</nav>
+<header class="hero">
+<div class="badges">
+<img alt="License MIT" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
+<img alt="Python 3.12" src="https://img.shields.io/badge/python-3.12-3776AB?style=flat-square&logo=python&logoColor=white">
+<img alt="Docker ready" src="https://img.shields.io/badge/docker-ready-2496ED?style=flat-square&logo=docker&logoColor=white">
+<img alt="Live data" src="https://img.shields.io/badge/data-live%20Yahoo%20v8-6ee7a8?style=flat-square">
+<img alt="Tests passing" src="https://img.shields.io/badge/tests-2%20passing-brightgreen?style=flat-square">
+</div>
+<h1>🔍 The Investigator, Not the Indicator</h1>
+<p><b>A price-action trading course, verified on 8,274 live daily bars — not backtest theatre.</b></p>
+<div class="ceo">
+<b>CEO summary (30 seconds):</b>
+① We turned 8 prose claims from a beginner course (bulls vs bears, candles, trend, momentum, 3-evidence reversals, memory zones, indicators-describe-only) into deterministic code and tested them on 6 years of SPY, AAPL, Bitcoin, Gold and EUR/USD with next-open execution, real costs and regime-matched controls.
+② Result: the <b>philosophy survives, the literal signals don't</b> — MACD/RSI shorts are null or significantly negative, the flagship 3-part reversal fires 3 times in 8,274 bars, support touches don't beat random, and every marginal edge dies under 5–20 bps costs or out-of-sample.
+③ Use this repo to <b>learn price action properly, run the same honest pipeline on any symbol, and never buy a "holy-grail indicator" again.</b> MIT-licensed, Docker one-command, classroom-ready.
+</div>
+<p>🌱 <b>New here?</b> Start at <a href="#story">Story</a> → open the <a href="#quiz">Quiz</a> → play the <a href="#lab">Candle lab</a>. You will know more than most interview candidates.</p>
+</header>
+<main>
+<h2 id="story">📖 The story in plain words</h2>
+<div class="card">
+<p>A beginner learns MACD, then RSI, then Bollinger, then merges them, then changes settings, then buys a new strategy — a year passes, nothing compounds. The course's diagnosis: <b>the tool was never the problem; the question was missing.</b> Indicators don't predict; they <i>describe</i>, like a screwdriver that can't hammer nails.</p>
+<div class="grid2">
+<div class="card"><h3>🤝 Tug-of-war</h3><p>Every tick is bulls pulling up, bears pulling down. You can't see the teams — only the <b>rope (price)</b>. Read the rope, stop chasing hidden "why".</p></div>
+<div class="card"><h3>🕯️ One candle = one round</h3><p><b>Body</b> = where the rope ended vs started (who won, by how much). <b>Wicks</b> = ground taken then lost (failed attacks). Green = bulls, red = bears.</p></div>
+<div class="card"><h3>🔦 Three flashlights</h3><p>Never open a chart without asking: <b>Q1</b> who holds the rope? <b>Q2</b> how strongly? <b>Q3</b> is control slipping? Up / down / range answers Q1; the rest of this page answers Q2–Q3 with numbers.</p></div>
+<div class="card"><h3>🧠 Memory trenches</h3><p>Old battlefields are remembered: <b>support</b> (floor where bulls regroup) and <b>resistance</b> (ceiling where bears defend) are <b>zones, not knife lines</b>. A line <i>reveals</i> memory; it never <i>decides</i> your trade.</p></div>
+</div>
+</div>
+
+<h2 id="results">📊 What live data actually says (verified 2026-10-12)</h2>
+<div class="card"><p><b>Universe:</b> SPY 1,507 · AAPL 1,507 · BTC-USD 2,192 · GLD 1,507 · EURUSD 1,561 bars (2020-10 → 2026-10). Signal at close <i>t</i>, entry at open <i>t+1</i>, 5-day hold, 0/5/11/20 bps costs, regime-matched random controls, 30 tests with BH correction. Full tables: <code>results/table.csv</code>, <code>results/regimes.csv</code>.</p></div>
+<h3>E1 — Trend does NOT dominate 5-day returns (mean-reversion overlay)</h3>
+<img class="chart" src="chart_regimes.png" alt="Regime base rates chart">
+<table>
+<tr><th>Symbol</th><th>Up (bps)</th><th>Down (bps)</th><th>Range (bps)</th><th>Reading</th></tr>
+<tr><td>SPY</td><td>+10.4</td><td class="pos">+61.4</td><td>+22.9</td><td>Down-bounces beat up-trends</td></tr>
+<tr><td>AAPL</td><td>+38.0</td><td class="pos">+100.1</td><td>+16.6</td><td>Same inversion</td></tr>
+<tr><td>BTC-USD</td><td>+67.9</td><td>+64.5</td><td>+38.8</td><td>All positive, wide CIs</td></tr>
+<tr><td>GLD</td><td>+30.7</td><td>+24.8</td><td>+20.2</td><td>Flat-ish</td></tr>
+<tr><td>EURUSD</td><td>+2.5</td><td>+2.8</td><td>−3.5</td><td>FX ≈ noise at 5d</td></tr>
+</table>
+<h3>E3/E5 — Signals vs matched controls (shorts, gross bps)</h3>
+<img class="chart" src="chart_signals.png" alt="Signal counts chart">
+<table>
+<tr><th>Family</th><th>SPY</th><th>AAPL</th><th>BTC</th><th>GLD</th><th>EURUSD</th></tr>
+<tr><td>3-rule reversal</td><td>n=1 +19</td><td>n=1 +189</td><td>n=0 —</td><td>n=1 +105</td><td>n=0 —</td></tr>
+<tr><td>1-rule placebo</td><td class="neg">−43</td><td class="neg">−59</td><td class="neg">−53</td><td class="neg">−32</td><td>+1.1*</td></tr>
+<tr><td>MACD-bear</td><td class="neg">−63</td><td class="neg">−95</td><td>+58†</td><td class="neg">−52</td><td>−12</td></tr>
+<tr><td>RSI-overbought</td><td>+1</td><td>−13</td><td class="neg">−269‡</td><td>−25</td><td>+30†</td></tr>
+</table>
+<p class="exp">* EURUSD 1-rule excess +50.6 vs weak control, p≈6e-80, but gross +1.1 → net −18.9 at 20 bps: statistically real, economically dead. † raw-only, BH-rejected. ‡ BH-surviving negative: shorting overbought BTC shorts strength.</p>
+<h3>E6 — Costs erase the margin</h3>
+<img class="chart" src="chart_costs.png" alt="Cost walk chart">
+<p>Only one short averages &gt;+50 bps gross (BTC-MACD +58.5 → +38.5 net at 20 bps) — and it flips sign out-of-sample (+89.8 IS → −18.0 OOS). Everything else is gross-negative before costs.</p>
+<details><summary><b>User stories — who is this repo for?</b></summary>
+<ul>
+<li>🎓 <b>Self-learner (zero → pro):</b> read story → quiz → lab → run one symbol in 5 minutes.</li>
+<li>👩‍🏫 <b>Teacher / community lead:</b> classroom-ready charts + quiz with answers; fork and translate.</li>
+<li>📊 <b>Strategy skeptic:</b> drop any symbol into the pipeline; matched controls + BH stop fooling yourself.</li>
+<li>💼 <b>Interviewer / candidate:</b> E1–E7 is a complete "backtest honesty" interview script.</li>
+<li>🔬 <b>PhD builder:</b> §8 roadmap (calendar-NW, horizon sweep, vol-conditioning, intraday) extends to a thesis.</li>
+</ul>
+</details>
+
+<h2 id="quiz">🎮 Interactive quiz — zero to pro (8 levels, instant feedback)</h2>
+<div id="quizbox">
+<div id="qbar"><div id="qfill"></div></div>
+<div class="q" id="qq"></div>
+<div class="opts" id="qo"></div>
+<p class="exp" id="qe"></p>
+<p><button id="qn" style="padding:10px 18px;border-radius:10px;border:1px solid var(--acc);background:#123324;color:#fff;font-weight:700;cursor:pointer">Next →</button>
+<span class="score" id="qs"></span></p>
+</div>
+<script>
+const Q=[
+{q:"A green candle with a long full body and almost no wicks means…",o:["Bulls won the round decisively from open to close","Nobody traded","A reversal is guaranteed tomorrow"],a:0,e:"Body = net displacement. Clean win — but 'clean' describes the past, it never promises the next round."},
+{q:"Price rises but every pullback is tiny and greens chain together. As Q2-momentum this is…",o:["Strong dominance: big bodies + shallow rests + consecutiveness","Weak dominance","A range"],a:0,e:"The course triad: body size + rest shallowness + streakiness. All three point the same way here."},
+{q:"Uptrend, pullbacks get DEEPER, rallies leave long upper wicks and fail, red bodies grow. This is…",o:["Ordinary rest — ignore","The 3-evidence flip: depth + failure + momentum turn","Proof price will double"],a:1,e:"All three evidences together = control may be passing. Any single one alone is just noise — our data shows 1-rule alarms are null."},
+{q:"Support is best drawn as…",o:["A razor line to the cent","A memory ZONE (bracket around repeated bounces)","A prediction of tomorrow's low"],a:1,e:"Old battlefields are remembered approximately. The line reveals; it never decides."},
+{q:"MACD-bear crosses and RSI>70 scream SHORT. Our 5-asset live test says…",o:["Free money","Null to significantly negative after costs — description, not prediction","Works only on Mondays"],a:1,e:"MACD-bear null everywhere; BTC RSI-OB shorts lost −287 bps excess. Indicators describe; they don't foresee."},
+{q:"The 3-evidence rule fired 3 times in 8,274 bars. Lesson?",o:["Trade it bigger","AND-of-everything starves the sample — stagger evidence or accept rarity","Lower the timeframe until it fires"],a:1,e:"Conjunction starvation: purity via absence. A rule that never fires is philosophy, not a system."},
+{q:"Even 'down' regimes averaged positive 5-day longs on SPY/AAPL. Means…",o:["Trend always dominates at every horizon","At 5 days a mean-reversion bounce overlays drift — horizon matters","Regimes don't exist"],a:1,e:"E1 inversion: +61/+100 bps in downs. Trend needs a horizon qualifier."},
+{q:"One edge is +30 bps gross. Costs are 20 bps and OOS flips sign. Professional call?",o:["Ship it","Reject: needs statistical AND economic AND stability gates","Average down"],a:1,e:"The three gates from the literature: p-value, post-cost magnitude, out-of-sample stability. Fail any → no system."}];
+let i=0,score=0,lock=false;
+const qq=document.getElementById('qq'),qo=document.getElementById('qo'),qe=document.getElementById('qe'),qs=document.getElementById('qs'),qf=document.getElementById('qfill'),qn=document.getElementById('qn');
+function render(){lock=false;qe.textContent='';const s=Q[i];qq.textContent=`Level ${i+1}/8 — ${s.q}`;qo.innerHTML='';qf.style.width=(i/Q.length*100)+'%';qs.textContent=`Score ${score}/${Q.length}`;
+s.o.forEach((t,k)=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{if(lock)return;lock=true;if(k===s.a){b.classList.add('ok');score++;}else{b.classList.add('no');qo.children[s.a].classList.add('ok');}qe.textContent='💡 '+s.e;qs.textContent=`Score ${score}/${Q.length}`;qf.style.width=((i+1)/Q.length*100)+'%';};qo.appendChild(b);});}
+qn.onclick=()=>{if(i<Q.length-1){i++;render();}else{qq.textContent=`🏆 Finished — ${score}/8. ${score>=7?'Investigator grade. You read results, not wishes.':score>=5?'Solid — re-read E3/E6, then retake.':'Restart from the Story section — the rope rewards patience.'}`;qo.innerHTML='';qe.textContent='Levels: 1-2 candles & momentum · 3-4 reversal & memory · 5-8 systems & costs. All answers cite live numbers above.';qn.textContent='↻ Retake';qn.onclick=()=>{i=0;score=0;qn.textContent='Next →';qn.onclick=null;location.reload();};}};
+render();
+</script>
+
+<h2 id="lab">🕯️ Candle lab — move the sliders, read the round</h2>
+<div class="card candle-demo">
+<div>
+<svg class="c" id="cv" width="120" height="220"></svg>
+</div>
+<div style="flex:1;min-width:240px">
+<label>Body size (win margin) <input type="range" id="lb" min="5" max="95" value="70"></label>
+<label>Upper wick (bulls rejected) <input type="range" id="lu" min="0" max="60" value="10"></label>
+<label>Lower wick (bears rejected) <input type="range" id="ll" min="0" max="60" value="10"></label>
+<label><input type="checkbox" id="lc" checked> Green (bulls win) / unchecked = red</label>
+<p id="lr" style="font-weight:700"></p>
+<p class="exp">Rule of thumb from the course: big body + tiny wicks = clean round · long lower wick + small top body = bears attacked, bulls reclaimed · doji + two wicks = drawn round.</p>
+</div>
+</div>
+<script>
+const cv=document.getElementById('cv'),lb=document.getElementById('lb'),lu=document.getElementById('lu'),ll=document.getElementById('ll'),lc=document.getElementById('lc'),lr=document.getElementById('lr');
+function draw(){const b=+lb.value,u=+lu.value,l=+ll.value,g=lc.checked;const H=220,tot=b+u+l;const sc=180/tot;const uh=u*sc,bh=b*sc,lh=l*sc;const cx=60,half=22;const top=10+uh;cv.innerHTML='';
+const col=g?'#2fbf71':'#e5484d';
+cv.innerHTML+=`<line x1="${cx}" y1="10" x2="${cx}" y2="${10+uh+bh+lh}" stroke="#8fa0c8" stroke-width="3"/>`;
+cv.innerHTML+=`<rect x="${cx-half}" y="${top}" width="${half*2}" height="${bh}" fill="${col}" stroke="#0b1020"/>`;
+let msg=g?(bh>60?'Clean bull round — strong close. Describes past strength; trade needs a system, not hope.':bh<25?'Narrow bull win — control is thin, watch Q3.':'Firm bull round with contest.'):(bh>60?'Clean bear round.':'Contested bear round.');
+if(u>35)msg+=' Long upper wick: advance rejected.';if(l>35)msg+=' Long lower wick: dip reclaimed.';
+lr.textContent='📖 Reading: '+msg;}
+[lb,lu,ll,lc].forEach(e=>e.oninput=draw);draw();
+</script>
+
+<h2 id="reproduce">⚙️ Reproduce in one command (Docker) or 3 steps (bare metal)</h2>
+<div class="card">
+<pre>docker compose up --build
+# → runs 5 symbols × 6y → results/table.csv + regimes.csv
+# bare metal:
+pip install -r requirements.txt
+python3 -m pytest tests/ -q
+PYTHONPATH=. python3 experiments/run_all.py --symbols SPY,AAPL,BTC-USD,GLD,EURUSD=X --years 6 --out results
+PYTHONPATH=. python3 experiments/make_charts.py</pre>
+<p><b>Features checklist:</b> PIT-correct t→t+1 engine · regime-matched controls · 0/5/11/20 bps cost grid · BH-FDR over 30 tests · bootstrap CIs · 70/30 stability split · deterministic seeds + Parquet cache · pinned deps + Dockerfile · pytest invariants · classroom charts + quiz + lab.</p>
+</div>
+
+<h2 id="pages">🌐 View as a website — GitHub Pages (2 minutes, 2026 flow)</h2>
+<div class="card">
+<ol>
+<li>Push this folder to GitHub (repo root must contain <code>preview.html</code> and <code>docs/*.png</code>).</li>
+<li>Open the repo → <b>Settings</b> → <b>Pages</b> → <b>Build and deployment</b> → <b>Source: Deploy from a branch</b>.</li>
+<li><b>Branch:</b> <code>main</code>, folder <code>/ (root)</code> → <b>Save</b>. Pages serves <code>preview.html</code> at <code>https://&lt;you&gt;.github.io/&lt;repo&gt;/preview.html</code>.</li>
+<li>Optional: <b>Custom domain</b> → add it under Pages → enforce <b>HTTPS</b>. Single-file page = no build step, works instantly.</li>
+<li>Link it from the README header (Live demo badge) so every visitor lands on this interactive page.</li>
+</ol>
+<p class="exp">Demo video: record 60–90s (terminal run + quiz clickthrough) with any screen recorder, export GIF/teaser ≤10 MB, place at <code>docs/demo.gif</code> and embed <code>![demo](docs/demo.gif)</code> at the README top — GIF-first READMEs convert skimmers (README-builder/LICEcap/Peek/vhs practice).</p>
+<video controls width="100%" poster="chart_regimes.png" style="border-radius:10px;border:1px solid var(--line);background:#000">
+<source src="demo.mp4" type="video/mp4">Your browser has no video tag — see docs/demo.gif.</video>
+<p class="exp">No <code>demo.mp4</code> yet? The poster above is the verified E1 chart. Add your recording to <code>docs/demo.mp4</code> (+GIF fallback) and this player lights up with zero HTML changes.</p>
+</div>
+
+<h2>⚠️ Honest limits + risk</h2>
+<div class="card"><ul>
+<li>Daily bars, H=5 only; intraday may differ. 6-year window = one macro regime sample.</li>
+<li>Per-symbol bootstrap (no cross-asset calendar-NW in v1). Yahoo data, costs-only friction (no borrow/funding).</li>
+<li>Detectors are our formalisation of prose — code is public so disputes are parametric.</li>
+<li><b>Education, not financial advice. Trading loses real money; no guaranteed profit exists.</b></li>
+</ul></div>
+</main>
+<footer>MIT License · Live Yahoo v8 data fetched 2026-10-12 · Reproduce: <code>docker compose up --build</code> · Full paper: <code>README.md</code></footer>
+</body>
+</html>
